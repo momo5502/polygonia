@@ -8,7 +8,7 @@ function run() {
     var colors = parseInt(Math.random() * 2) + 2;
 
     for (var i = 0; i < colors; ++i) {
-        gradient.push([parseInt(Math.random() * 256), parseInt(Math.random() * 256), parseInt(Math.random() * 256)]);
+        gradient.push("hsl(" + Math.random() * 360 + ", 100%," + (((colors - (i + 1)) * 100) / colors) + "%)");
     }
 
     var polygonRenderer = new PolygonRenderer(context, {
