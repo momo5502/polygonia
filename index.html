@@ -11,6 +11,12 @@
 
 <body>
     <canvas id="canvas"></canvas>
+    <script>
+        var ua = window.navigator.userAgent;
+        if (ua.indexOf("MSIE ") > 0 || ua.indexOf('Trident/') > 0 || ua.indexOf('Edge/') > 0) {
+            alert("Please get rid of your trashy browser");
+        }
+    </script>
 </body>
 
 </html>
