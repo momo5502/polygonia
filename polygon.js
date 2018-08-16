@@ -7,6 +7,7 @@ class PolygonRenderer {
         this.polygonDimensions = [100, 100];
         this.generateTriangles = false;
         this.distortionScale = 0.25;
+        this.leftColor = true;
 
         this.gradient = [
             [252, 186, 42],
@@ -76,7 +77,7 @@ class PolygonRenderer {
             }
         }
 
-        var colors = polygon.calculateGradient(this.gradient);
+        var colors = polygon.calculateGradient(this.gradient, this.leftColor);
         var bounds = polygon.calculateBounds(this.vertices, false);
         bounds = this.rotateArea(bounds, polygon.angle);
 
@@ -205,9 +206,9 @@ class Polygon extends Array {
         this.angle = Math.random() * 360;
     }
 
-    calculateColor(colors, offset) {
+    calculateColor(colors, offset, left) {
         offset = (offset || 0) + this.offset;
-        var xFactor = (this.x * 2 + offset) / (this.xEnd * 2);
+        var xFactor = ((left ? this.x : this.xEnd - this.x) * 2 + offset) / (this.xEnd * 2);
         var yFactor = (this.y * 2 + offset) / (this.yEnd * 2);
 
         var factor = (xFactor + yFactor) / 2;
@@ -230,9 +231,9 @@ class Polygon extends Array {
         return result;
     }
 
-    calculateGradient(colors) {
-        var color1 = this.calculateColor(colors, 0);
-        var color2 = this.calculateColor(colors, 1);
+    calculateGradient(colors, left) {
+        var color1 = this.calculateColor(colors, 0, left);
+        var color2 = this.calculateColor(colors, 1, left);
 
         return [color1, color2];
     }

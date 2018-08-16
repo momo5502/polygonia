@@ -17,7 +17,8 @@ function run() {
         generateTriangles: triangles,
         distortionScale: triangles ? 0.25 : 0.45,
         polygonDimensions: triangles ? [100, 100] : [80, 80],
-        gradient: gradient
+        gradient: gradient,
+        leftColor: parseInt(Math.random() * 100) % 2 == 0
     });
 
     var render = (loop) => {
