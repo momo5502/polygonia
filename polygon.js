@@ -149,9 +149,6 @@ class PolygonRenderer {
         xDistortion = (Math.random() * (xDistortion * 2)) - xDistortion;
         yDistortion = (Math.random() * (yDistortion * 2)) - yDistortion;
 
-        //xDistortion = 0;
-        //yDistortion = 0;
-
         var xCoord = x * xStep + xDistortion;
         var yCoord = y * yStep + yDistortion;
 
