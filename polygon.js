@@ -112,8 +112,8 @@ class PolygonRenderer {
         var height = this.ctx.canvas.height;
         var width = this.ctx.canvas.width;
 
-        var yElements = parseInt(height / yStep) + 2;
-        var xElements = parseInt(width / xStep) + 2;
+        var yElements = parseInt(height / yStep) + 3;
+        var xElements = parseInt(width / xStep) + 3;
 
         this.vertices = new Array(xElements * yElements);
         this.polygons = [];
