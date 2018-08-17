@@ -85,6 +85,7 @@ class PolygonRenderer {
 
         this.ctx.strokeStyle = gr;
         this.ctx.fillStyle = gr;
+        this.ctx.lineWidth = 2;
         this.ctx.closePath();
         this.ctx.fill();
         this.ctx.stroke();
@@ -112,8 +113,8 @@ class PolygonRenderer {
         var height = this.ctx.canvas.height;
         var width = this.ctx.canvas.width;
 
-        var yElements = parseInt(height / yStep) + 3;
-        var xElements = parseInt(width / xStep) + 3;
+        var yElements = parseInt(height / yStep) + 2;
+        var xElements = parseInt(width / xStep) + 2;
 
         this.vertices = new Array(xElements * yElements);
         this.polygons = [];
