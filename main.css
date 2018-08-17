@@ -10,3 +10,23 @@ html, body {
     width: 100%;
     border: none;
 }
+
+.container {
+    position: absolute;
+    padding: 16px;
+    width: 300px;
+    height: 200px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+}
+
+.content {
+    background-color: white;
+    border-radius: 5px;
+    margin: -15px;
+    padding: 25px 15px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}

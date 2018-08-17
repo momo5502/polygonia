@@ -4,6 +4,10 @@
 <head>
     <title>Polygonia</title>
     <meta charset="UTF-8" />
+
+    <script src="lib/grapick.min.js"></script>
+    <link rel="stylesheet" href="lib/grapick.min.css" />
+
     <script src="polygon.js"></script>
     <script src="main.js"></script>
     <link rel="stylesheet" href="main.css" />
@@ -11,6 +15,13 @@
 
 <body>
     <canvas id="canvas"></canvas>
+
+    <div class="container">
+        <div class="content">
+            <div id="gp"></div>
+        </div>
+    </div>
+
     <script>
         var ua = window.navigator.userAgent;
         if (ua.indexOf("MSIE ") > 0 || ua.indexOf('Trident/') > 0 || ua.indexOf('Edge/') > 0) {

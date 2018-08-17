@@ -39,4 +39,40 @@ function run() {
     });
 
     render(false);
+
+    setupPicker(polygonRenderer);
+}
+
+function setupPicker(polygonRenderer) {
+    polygonRenderer.render(); // Make sure to render at least once to be able to access the gradient
+    var gradient = polygonRenderer.gradient;
+
+    const gp = new Grapick({ el: '#gp' });
+
+    for (var i = 0; i < gradient.length; ++i) {
+        var step = (i * 100) / (gradient.length - 1);
+
+        var color = gradient[i];
+        var string = "#";
+
+        for (var j = 0; j < 3; ++j) {
+            var num = color[j].toString(16);
+            while (num.length < 2) num = "0" + num;
+            string += num;
+        }
+
+        gp.addHandler(step, string);
+    }
+
+    gp.on('change', complete => {
+        var handlers = gp.getHandlers();
+        var gradient = [];
+
+        for (var i = 0; i < handlers.length; ++i) {
+            gradient.push(handlers[i].color);
+        }
+
+        polygonRenderer.gradient = gradient;
+        polygonRenderer.render();
+    });
 }
